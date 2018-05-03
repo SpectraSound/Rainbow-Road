@@ -4,6 +4,7 @@ namespace Assets.Scripts {
     public class PlayerMovement : MonoBehaviour {
 
 <<<<<<< HEAD
+        
         public int JumpSpeed = 5;
 
         private Rigidbody2D Rb2D;
@@ -32,14 +33,20 @@ namespace Assets.Scripts {
         PlayerMove();
 	}
 >>>>>>> 3241bce9ca864982bd9e6441b0c6855965ec2937
+        
+        public float MoveSpeed;
 
+    
         void Start() {
             Rb2D = GetComponent<Rigidbody2D>();
         }
 
 <<<<<<< HEAD
+        
         void FixedUpdate() {
             PlayerJump();
+            
+            
         }
 
         void Update() {
@@ -47,6 +54,8 @@ namespace Assets.Scripts {
                 canJump = true;
                 _jumpCount++;
             }
+            PlayerMove();
+            PlayerJump();
         }
 
         void PlayerJump() {
@@ -70,11 +79,23 @@ namespace Assets.Scripts {
             IsGrounded = true;
         }
     }
+        public void PlayerMove() {
+            if (Input.GetKey(KeyCode.D)) {
+                Rb2D.AddForce(new Vector2(MoveSpeed,0));
+            }
 
     public void PlayerMove() {
         if (Input.GetKey(KeyCode.D)) {
             rb2D.AddForce(new Vector2(MoveSpeed,0));
         }
+            if (Input.GetKey(KeyCode.A)) {
+                Rb2D.AddForce(new Vector2(-MoveSpeed, 0));
+            }      
+            
+            if (Input.GetKeyDown(KeyCode.W)) {
+                canJump = true;
+                _jumpCount++;
+            }
 
         if (Input.GetKey(KeyCode.A)) {
             rb2D.AddForce(new Vector2(-MoveSpeed, 0));
@@ -87,3 +108,4 @@ namespace Assets.Scripts {
 
 }
 >>>>>>> 3241bce9ca864982bd9e6441b0c6855965ec2937
+
