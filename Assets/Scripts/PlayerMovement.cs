@@ -1,38 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+namespace Assets.Scripts {
+    public class PlayerMovement : MonoBehaviour {
 
-    public Rigidbody2D rb2D;
-    public float JumpSpeed;
-    public bool IsGrounded = true;
+        public int JumpSpeed = 5;
 
-	// Use this for initialization
-	void Start () {
-	    rb2D = GetComponent<Rigidbody2D>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-	    PlayerJump();
-	}
+        private Rigidbody2D Rb2D;
+        private bool canJump;
+        public static int _jumpCount;
 
-    public void PlayerJump() {
-
-        if (IsGrounded) {
-
-            if (Input.GetKey(KeyCode.W)) {
-                rb2D.AddForce(new Vector2(0, JumpSpeed), ForceMode2D.Impulse);
-                IsGrounded = !IsGrounded;
-            }
-            
+        void Start() {
+            Rb2D = GetComponent<Rigidbody2D>();
         }
-        
-        
-    }
 
-    public void PlayerMove() {
-        
+        void FixedUpdate() {
+            PlayerJump();
+        }
+
+        void Update() {
+            if (Input.GetKeyDown(KeyCode.W)) {
+                canJump = true;
+                _jumpCount++;
+            }
+        }
+
+        void PlayerJump() {
+            if (canJump) {
+                canJump = false;
+                if (_jumpCount < 3) {
+                    Rb2D.AddForce(new Vector2(0, JumpSpeed), ForceMode2D.Impulse);
+                }
+            }
+        }
     }
 }
