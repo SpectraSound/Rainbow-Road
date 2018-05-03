@@ -3,11 +3,13 @@
 namespace Assets.Scripts {
     public class PlayerMovement : MonoBehaviour {
         
+        public static int _jumpCount;
+
         public int JumpSpeed = 5;
 
         private Rigidbody2D Rb2D;
+
         private bool canJump;
-        public static int _jumpCount;
         
         public float MoveSpeed;
 
@@ -16,10 +18,7 @@ namespace Assets.Scripts {
             Rb2D = GetComponent<Rigidbody2D>();
         }
         
-        void FixedUpdate() {
-            
-            
-        }
+
 
         void Update() {
             PlayerMove();

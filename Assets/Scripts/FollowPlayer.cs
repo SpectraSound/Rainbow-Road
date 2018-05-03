@@ -6,24 +6,21 @@ public class FollowPlayer : MonoBehaviour {
 
     public GameObject Player;
 
-    private float offsetY;
+    private float _offsetY;
 
-    private float offsetX;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+    private float _offsetX;
+    
+
+
 	void Update () {
-	    offsetY = Player.transform.position.y - transform.position.y;
-	    offsetX = Player.transform.position.x - transform.position.x;
+	    _offsetY = Player.transform.position.y - transform.position.y;
+	    _offsetX = Player.transform.position.x - transform.position.x;
         _followPlayer();
 	}
 
     public void _followPlayer() {
         if (transform.position != Player.transform.position) {
-            transform.Translate(offsetX, 0, 0);
+            transform.Translate(_offsetX, 0, 0);
         }
     }
 
