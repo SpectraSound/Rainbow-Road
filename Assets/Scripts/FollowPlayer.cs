@@ -7,6 +7,7 @@ public class FollowPlayer : MonoBehaviour {
 
     public GameObject Player;
 
+<<<<<<< HEAD
     public float offsetY;
 
     public float speed = 1.0F;
@@ -24,6 +25,24 @@ public class FollowPlayer : MonoBehaviour {
         float fracJourney = distCovered / journeyLength;
         float testTime = speed * Time.deltaTime;
         transform.position = Vector3.SmoothDamp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y, -10f), ref velocity, testTime);
+=======
+    private float _offsetY;
+
+    private float _offsetX;
+    
+
+
+	void Update () {
+	    _offsetY = Player.transform.position.y - transform.position.y;
+	    _offsetX = Player.transform.position.x - transform.position.x;
+        _followPlayer();
+	}
+
+    public void _followPlayer() {
+        if (transform.position != Player.transform.position) {
+            transform.Translate(_offsetX, 0, 0);
+        }
+>>>>>>> aa0468f2fb930c162432f639c5547820015461ee
     }
 
 

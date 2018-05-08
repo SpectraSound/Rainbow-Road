@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: add860fd88fea6446a909e2d7b0049ca
 timeCreated: 1525422464
+=======
+guid: 8840dad17eca867409e61cfad79b113b
+timeCreated: 1525348070
+>>>>>>> aa0468f2fb930c162432f639c5547820015461ee
 licenseType: Free
 MonoImporter:
   externalObjects: {}
