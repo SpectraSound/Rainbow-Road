@@ -10,7 +10,7 @@ namespace Assets.Scripts {
 	
         // Update is called once per frame
         void Update () {
-            Debug.Log(PlayerMovement._jumpCount);
+            //Debug.Log(PlayerMovement._jumpCount);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {

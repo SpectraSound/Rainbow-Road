@@ -17,7 +17,7 @@ namespace Assets.Scripts {
         }
         
         void FixedUpdate() {
-            
+
             
         }
 
@@ -27,6 +27,9 @@ namespace Assets.Scripts {
         }
 
         void PlayerJump() {
+
+
+
             if (canJump) {
                 canJump = false;
                 if (_jumpCount < 3) {
@@ -41,9 +44,10 @@ namespace Assets.Scripts {
 
             if (Input.GetKey(KeyCode.A)) {
                 Rb2D.AddForce(new Vector2(-MoveSpeed, 0));
-            }      
-            
-            if (Input.GetKeyDown(KeyCode.W)) {
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
                 canJump = true;
                 _jumpCount++;
             }
